@@ -1,0 +1,10 @@
+<%if user_signed_in? && @user == current_user %>
+  <h1 class="display-4 text-center"> You are followed by </h1>
+<% else %>
+  <h1 class="display-4 text-center"> <%= @user.username %> is being followed by </h1>
+<% end %>
+<% if !@followers.nil? %>
+  <%= render partial: "users/user_list", locals: {users: @followers}%>
+<% else %>
+  <h1 class="display-4 text-center"> Nobody yet </h1>
+<% end %>

@@ -1,0 +1,38 @@
+<h2 class="display-5 text-center">Edit public information</h2>
+<%= form_with url: url, model: user, method: :patch do |form| %>
+  <% if user.errors.any? %>
+    <div class="alert alert-danger">
+      <% user.errors.full_messages.each do |message| %>
+        <div><%= message %> </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :fullname %>
+    <%= form.text_field :fullname, class: "form-control", placeholder: "John Smith", autofocus: true %>
+    <small id="Username" class="form-text text-muted">What's your name?.</small>
+  </div>
+  <div class="form-group">
+    <%= form.label :username %>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <%= form.text_field :username, class: "form-control", placeholder: "johnsmit" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= form.label :avatar %>
+    <img class="img_upload_field">
+    <%= form.file_field :avatar, accept: 'image/png, image/jpeg', class: "form-control file_upload" %>
+    <small id="avatar" class="form-text text-muted">Upload a picture that everybody can love.</small>
+  </div>
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description , class: "form-control", placeholder: "An awesome guy with Mr. smith hobbies" %>
+    <small id="Description" class="form-text text-muted">Tell us more about yourself.</small>
+  </div>
+ <%= form.submit "Update public information", class: "btn btn-success btn-lg btn-block" %>
+
+<% end %>

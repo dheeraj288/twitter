@@ -1,0 +1,23 @@
+<h1 class="display-4 text-center">Follow another user</h1>
+
+<%= form_with follow: @follow, url: following_index_path, method: :post do |form| %>
+
+  <% if @follow.errors.any? %>
+    <div class="alert alert-danger">
+      <% @follow.errors.full_messages.each do |message| %>
+        <div><%= message %> </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :username %>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <%= form.text_field :username, class: "form-control", placeholder: "johnsmit" %>
+    </div>
+  </div>
+ <%= form.submit "Follow user", class: "btn btn-success btn-lg btn-block" %>
+<%end%>

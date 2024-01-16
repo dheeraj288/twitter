@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+  <h1 class ="display-4 text-center">Last tweets from people you follow and yourself</h1>
+  <%= render partial: "following/following_table", locals: {user: current_user} %>
+<%else%>
+  <h1 class ="display-4 text-center">Our recent tweets</h1>
+<%end %>
+<%= render partial: "tweets/tweet_list", locals: {tweets: @tweets}%>

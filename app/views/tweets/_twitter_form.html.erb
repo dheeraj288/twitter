@@ -1,0 +1,24 @@
+<%= form_with url: url, model: tweet do |form| %>
+  <% if tweet.errors.any? %>
+    <div class="alert alert-danger">
+      <% tweet.errors.full_messages.each do |message| %>
+        <div><%= message %> </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :message %>
+    <%= form.text_area :message, class: "form-control", placeholder: "Your awesome message", maxlength:"280", size: "60x5"%>
+    <small id="Username" class="form-text text-muted">Just do it!</small>
+  </div>
+  <div class="form-group">
+    <%= form.label :image %>
+    <img class="img_upload_field">
+    <%= form.file_field :image, accept: 'image/png, image/jpeg', class: "form-control file_upload" %>
+    <small id="avatar" class="form-text text-muted">Upload a picture that fits for your tweet.</small>
+  </div>
+ <%= form.submit "Create tweet", class: "btn btn-primary btn-lg btn-block" %>
+ <%= link_to "Back", :back, class: "btn btn-link btn-lg" %>
+
+<% end %>

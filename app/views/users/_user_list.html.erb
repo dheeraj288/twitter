@@ -1,0 +1,11 @@
+<% users.each do |user| %>
+  <%= render partial: "users/user_template", locals: {user: user} %>
+<% end %>
+<div class="apple_pagination">
+  <div>
+    <%= page_entries_info users  %>
+  </div>
+  <div>
+    <%= will_paginate users, container: false %>
+  </div>
+</div>

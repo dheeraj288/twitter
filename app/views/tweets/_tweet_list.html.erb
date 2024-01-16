@@ -1,0 +1,11 @@
+<% tweets.each do |tweet| %>
+  <%= render partial: "tweets/tweet_template", locals: {user: tweet.user, tweet: tweet} %>
+<% end %>
+<div class="apple_pagination">
+  <div>
+    <%= page_entries_info tweets  %>
+  </div>
+  <div>
+    <%= will_paginate tweets, container: false %>
+  </div>
+</div>

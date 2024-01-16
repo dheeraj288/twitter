@@ -1,0 +1,9 @@
+<div class="card bg-light text-center mb-3 mx-auto" style="max-width: 50rem;">
+  <div class="card-body">
+    <%#= link_to user.avatar do %>
+      <%#= image_tag user.avatar.variant(resize_to_fill: [40, 40]).processed, class:"d-inline text-justify" %>
+     <%# end %>
+    <p class="card-title"><p class="font-weight-bold d-inline"><%= user.fullname %></p>, (<%= link_to "@"+user.username, user_path(user.username) %>) </p>
+    <%= render partial: "following/following_button", locals: {user: user}%>
+  </div>
+</div>

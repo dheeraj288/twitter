@@ -1,0 +1,15 @@
+<div id="user_profile" class="text-center" >
+  <h1 class="display-4">Home page</h1>
+ 
+  <h2><%= @user.fullname %></h2>
+  <h3>@<%= @user.username %></h3>
+  <p><%= @user.description %></p>
+    <%= render partial: "following/following_table", locals: {user: @user} %>
+    <%= render partial: "following/following_button", locals: {user: @user} %>
+  <%= link_to "New Tweet", new_tweet_path, class: "btn btn-primary btn-lg m-3" if user_signed_in? && current_user == @user %>
+  <% if @user.tweets.nil? %>
+    <h1 class="display-4 text-center">Click on create tweet to start</h1>
+  <%else%>
+    <%= render partial: "tweets/tweet_list", locals: {tweets: @tweets}%>
+  <%end%>
+</div>

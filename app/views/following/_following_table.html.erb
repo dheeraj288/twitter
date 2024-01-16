@@ -1,0 +1,12 @@
+<table class="text-center table table-primary">
+  <tr>
+    <th scope="col"> <%= link_to 'Followers', user_followers_path(user.username),class: "btn btn-primary" %> </th>
+  <%= link_to user.avatar do %>
+    <th scope="col"> <%= link_to 'Following', user_following_index_path(user.username),class: "btn btn-primary" %> </th>
+  <% end %>
+  </tr>
+  <tr>
+    <td> <%= link_to user.followers.length, user_followers_path(user.username) %> </td>
+    <td> <%= link_to user.following.length, user_following_index_path(user.username) %> </td>
+  </tr>
+</table>

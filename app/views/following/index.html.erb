@@ -1,0 +1,11 @@
+<%if user_signed_in? && @user == current_user %>
+  <h1 class="display-4 text-center"> You are following </h1>
+  <%= link_to "Follow another user", new_following_path, class: "text-center btn btn-primary rounded-0 mb-2 btn-lg btn-block" %>
+<% else %>
+  <h1 class="display-4 text-center"> <%= @user.username %> is following </h1>
+<% end %>
+<% if !@following.nil? && @following.length > 0%>
+  <%= render partial: "users/user_list", locals: {users: @following}%>
+<% else %>
+  <h1 class="display-4 text-center"> Nobody yet </h1>
+<% end %>
